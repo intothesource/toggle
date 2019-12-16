@@ -1,11 +1,33 @@
 {
   "name": "@intothesource/toggle",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Material style toggle",
+  "main": "toggle.js",
+  "module": "toggle.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "toggle.js",
+    "toggle.css"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intothesource/toggle.git"
+  },
+  "keywords": [
+    "toggle",
+    "material",
+    "switch"
+  ],
   "author": "Ramon Valk",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/intothesource/toggle/issues"
+  },
+  "homepage": "https://github.com/intothesource/toggle#readme"
 }
