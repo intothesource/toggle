@@ -1,3 +1,9 @@
+its-toggle {
+    display: block;
+    width: fit-content;
+    height: fit-content;
+}
+
 [data-its-toggle-input] {
   display: none;
 }
@@ -9,7 +15,6 @@
   cursor: pointer;
   font-weight: 500;
   text-align: left;
-  margin: 16px;
   padding: 16px 0;
 }
 
