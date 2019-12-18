@@ -27,6 +27,14 @@ class Toggle extends HTMLElement {
         this.appendChild(inputElement);
         this.appendChild(labelElement);
     }
+
+    get toggleState() {
+        return this.querySelector('input').checked;
+    }
+
+    set toggleState(bool) {
+        this.querySelector('input').checked = bool;
+    }
 }
 
 window.customElements.define('its-toggle', Toggle);
