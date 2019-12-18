@@ -12,6 +12,7 @@ class Toggle extends HTMLElement {
         }
 
         this.toggleState = this.hasAttribute('data-its-toggle-checked');
+        console.log('it works and such', this.hasAttribute('data-its-toggle-checked'));
     }
 
     createElements(toggleName) {
