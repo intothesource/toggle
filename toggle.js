@@ -10,6 +10,8 @@ class Toggle extends HTMLElement {
             const randomName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
             this.createElements(randomName);
         }
+
+        this.toggleState = this.hasAttribute('data-its-toggle-checked');
     }
 
     createElements(toggleName) {
@@ -26,6 +28,11 @@ class Toggle extends HTMLElement {
 
         this.appendChild(inputElement);
         this.appendChild(labelElement);
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        console.log('attChangedCallback: ', name, oldValue, newValue);
+        this.toggleState = this.hasAttribute('data-its-toggle-checked');
     }
 
     get toggleState() {
