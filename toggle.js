@@ -1,4 +1,9 @@
 class Toggle extends HTMLElement {
+
+    static get observedAttributes() {
+        return ['data-its-toggle-checked', 'data-its-toggle-name'];
+    }
+
     constructor() {
         super();
     }
@@ -32,7 +37,6 @@ class Toggle extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        console.log('attChangedCallback: ', name, oldValue, newValue);
         this.toggleState = this.hasAttribute('data-its-toggle-checked');
     }
 
@@ -41,7 +45,9 @@ class Toggle extends HTMLElement {
     }
 
     set toggleState(bool) {
-        this.querySelector('input').checked = bool;
+        if (this.querySelector('input')) {
+            this.querySelector('input').checked = bool;
+        }
     }
 }
 
