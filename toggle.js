@@ -6,11 +6,11 @@ class Toggle extends HTMLElement {
 
     constructor() {
         super();
-        let componentCreated = false;
+        this.componentCreated = false;
     }
 
     connectedCallback() {
-        if (!componentCreated) {
+        if (!this.componentCreated) {
             if (this.dataset.itsToggleName) {
                 this.createElements(this.dataset.itsToggleName);
             } else {
