@@ -6,28 +6,20 @@ class Toggle extends HTMLElement {
 
     constructor() {
         super();
-
-        if (this.dataset.itsToggleName) {
-            this.createElements(this.dataset.itsToggleName);
-        } else {
-            const randomName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-            this.createElements(randomName);
-        }
-
-        this.toggleState = this.hasAttribute('data-its-toggle-checked');
-        console.log('it works and such', this.hasAttribute('data-its-toggle-checked'));
+        let componentCreated = false;
     }
 
     connectedCallback() {
-        // if (this.dataset.itsToggleName) {
-        //     this.createElements(this.dataset.itsToggleName);
-        // } else {
-        //     const randomName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        //     this.createElements(randomName);
-        // }
+        if (!componentCreated) {
+            if (this.dataset.itsToggleName) {
+                this.createElements(this.dataset.itsToggleName);
+            } else {
+                const randomName = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+                this.createElements(randomName);
+            }
 
-        // this.toggleState = this.hasAttribute('data-its-toggle-checked');
-        // console.log('it works and such', this.hasAttribute('data-its-toggle-checked'));
+            this.toggleState = this.hasAttribute('data-its-toggle-checked');
+        }
     }
 
     createElements(toggleName) {
