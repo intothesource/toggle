@@ -10,6 +10,7 @@ class Toggle extends HTMLElement {
     }
 
     connectedCallback() {
+        console.log('ConnectedCallback and stuff: ', this.componentCreated);
         if (!this.componentCreated) {
             if (this.dataset.itsToggleName) {
                 this.createElements(this.dataset.itsToggleName);
