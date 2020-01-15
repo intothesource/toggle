@@ -7,10 +7,11 @@ class Toggle extends HTMLElement {
     constructor() {
         super();
         this.componentCreated = false;
+        this.toggleName = 'nothing yet';
     }
 
     connectedCallback() {
-        console.log('ConnectedCallback and stuff: ', this.isConnected, this.componentCreated);
+        console.log('CONNECTED: ', this.isConnected, this.componentCreated, this.toggleName);
         if (!this.componentCreated) {
             this.componentCreated = true;
             if (this.dataset.itsToggleName) {
@@ -25,11 +26,12 @@ class Toggle extends HTMLElement {
     }
 
     disconnectedCallback() {
-        console.log('DISCONNECTED', this.isConnected);
+        console.log('DISCONNECTED', this.isConnected, this.componentCreated, this.toggleName);
 
     }
 
     createElements(toggleName) {
+        this.toggleName = toggleName;
         const inputElement = document.createElement('input');
         const labelElement = document.createElement('label');
 
