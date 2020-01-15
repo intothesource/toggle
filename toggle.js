@@ -12,6 +12,7 @@ class Toggle extends HTMLElement {
     connectedCallback() {
         console.log('ConnectedCallback and stuff: ', this.componentCreated);
         if (!this.componentCreated) {
+            this.componentCreated = true;
             if (this.dataset.itsToggleName) {
                 this.createElements(this.dataset.itsToggleName);
             } else {
@@ -20,7 +21,6 @@ class Toggle extends HTMLElement {
             }
 
             this.toggleState = this.hasAttribute('data-its-toggle-checked');
-            this.componentCreated = true;
         }
     }
 
