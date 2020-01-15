@@ -1,5 +1,4 @@
 class Toggle extends HTMLElement {
-    componentCreated = false;
 
     static get observedAttributes() {
         return ['data-its-toggle-checked', 'data-its-toggle-name'];
@@ -7,6 +6,7 @@ class Toggle extends HTMLElement {
 
     constructor() {
         super();
+        this.componentCreated = false;
     }
 
     connectedCallback() {
