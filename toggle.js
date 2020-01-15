@@ -10,7 +10,7 @@ class Toggle extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log('ConnectedCallback and stuff: ', this.componentCreated);
+        console.log('ConnectedCallback and stuff: ', this.isConnected, this.componentCreated);
         if (!this.componentCreated) {
             this.componentCreated = true;
             if (this.dataset.itsToggleName) {
@@ -25,7 +25,8 @@ class Toggle extends HTMLElement {
     }
 
     disconnectedCallback() {
-        console.log('DISCONNECTED');
+        console.log('DISCONNECTED', this.isConnected);
+
     }
 
     createElements(toggleName) {
