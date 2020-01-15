@@ -24,6 +24,10 @@ class Toggle extends HTMLElement {
         }
     }
 
+    disconnectedCallback() {
+        console.log('DISCONNECTED');
+    }
+
     createElements(toggleName) {
         const inputElement = document.createElement('input');
         const labelElement = document.createElement('label');
