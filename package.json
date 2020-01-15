@@ -1,6 +1,6 @@
 {
   "name": "@intothesource/toggle",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "Material style toggle",
   "main": "toggle.js",
   "module": "toggle.js",
