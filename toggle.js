@@ -8,6 +8,8 @@ class Toggle extends HTMLElement {
         super();
         this.componentCreated = false;
         this.toggleName = 'nothing yet';
+        this.inputElement;
+        this.labelElement;
     }
 
     connectedCallback() {
@@ -27,24 +29,29 @@ class Toggle extends HTMLElement {
 
     disconnectedCallback() {
         console.log('DISCONNECTED', this.isConnected, this.componentCreated, this.toggleName);
-
+        if (this.inputElement) {
+            this.removeChild(this.inputElement);
+        }
+        if (this.labelElement) {
+            this.removeChild(this.labelElement);
+        }
     }
 
     createElements(toggleName) {
         this.toggleName = toggleName;
-        const inputElement = document.createElement('input');
-        const labelElement = document.createElement('label');
+        this.inputElement = document.createElement('input');
+        this.labelElement = document.createElement('label');
 
-        inputElement.setAttribute('type', 'checkbox');
-        inputElement.setAttribute('id', `its-toggle-${toggleName}`);
-        inputElement.setAttribute('name', `${toggleName}`);
-        inputElement.setAttribute('data-its-toggle-input', '');
+        this.inputElement.setAttribute('type', 'checkbox');
+        this.inputElement.setAttribute('id', `its-toggle-${toggleName}`);
+        this.inputElement.setAttribute('name', `${toggleName}`);
+        this.inputElement.setAttribute('data-its-toggle-input', '');
 
-        labelElement.setAttribute('for', `its-toggle-${toggleName}`);
-        labelElement.setAttribute('data-its-toggle-label', '');
+        this.labelElement.setAttribute('for', `its-toggle-${toggleName}`);
+        this.labelElement.setAttribute('data-its-toggle-label', '');
 
-        this.appendChild(inputElement);
-        this.appendChild(labelElement);
+        this.appendChild(this.inputElement);
+        this.appendChild(this.labelElement);
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
